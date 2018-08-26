@@ -1,0 +1,12 @@
+echo file name?
+read na
+echo file type?
+read end
+for ((i = 100; i >= 1; i--))
+do	
+	rm $na${i}
+	echo $na${i} removed
+	sleep 0.2
+done
+echo $na
+echo $end

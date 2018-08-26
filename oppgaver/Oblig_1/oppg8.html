@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>Oppg 8</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script>
+		window.onload = oppstart
+		function oppstart() {
+			document.getElementById("btn8").onclick = skjema8;
+		}
+		function skjema8() {
+			var jsmasse = document.getElementById("masse").value;
+			var jscm = document.getElementById("cm").value;              // m / (k)^2 // (m)*((k/100)*(k/100))
+			var bmi = jsmasse / ((jscm / 100) * (jscm / 100));
+			
+			document.getElementById("utskrift").innerHTML = bmi;
+			
+			
+		}
+		
+		</script>
+	</head>
+	<body>
+		<h1>Oppgave 8.</h1>         <a href="index.html">Home</a>
+			<h3>
+				Lag en kalkulator som utfører beregninger basert på brukerdata. For eksempel: <br />
+				- BMI <br />
+				- Skatt <br />
+				- Importavgift eller omregistreringsavgift på bil <br />
+				- Bit/s til Byte/s omformer <br />
+				- Rentekalkula <br />
+			</h3> 
+			<h3>
+							BMI kalkulator <br /><br />
+			Vekt i kg:<input id="masse" type="number" value="0" /> <br />
+			høyde i cm:<input id="cm"  type="number" value="0" />
+			</h3> 
+			 <p id="utskrift"></p>
+			
+		<button id="btn8" type="submit">Regn ut!</button>
+	</body>
+</html>
+

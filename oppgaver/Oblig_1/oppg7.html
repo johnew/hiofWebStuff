@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Oppg 7</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script>
+		window.onload = oppstart
+		function oppstart() {
+			document.getElementById("btn7").onclick = skjema7;
+		}
+		function skjema7() {
+			var user7 = document.getElementById("txtuser7").value;
+			var pass7 = document.getElementById("txtpass7").value;
+			var passcheck7 = document.getElementById("txtpasscheck7").value;
+			var age7 = parseInt(document.getElementById("txtalder7").value);
+			var jsok = "nope";
+			
+			var uservalue = " ";
+			var passvalue = " ";
+			var passcheckvalue = " ";
+			var agevalue = " ";
+			var ageprint = " ";
+			
+			if(user7 !== "" && pass7 !== "" && passcheck7 !== "" && age7 > 18) {
+				jsok = "du er registrert!";
+			}
+			 else {
+				if(user7 === "") { uservalue = "Please enter a username";}
+				if(pass7 === "") { passvalue = "you must enter a password";}
+				//if(passcheck7 === "") {passcheckvalue = "you must re-enter your password here";}
+				if(passcheck7 !== pass7) { passcheckvalue = "your password did not match.";}
+				if (age7 < 18) { agevalue = "you are not old enough to enter this site";}
+			}
+			document.getElementById("userprint").innerHTML = uservalue;
+			document.getElementById("passprint").innerHTML = passvalue;
+			document.getElementById("passcheckprint").innerHTML = passcheckvalue;
+			document.getElementById("ageprint").innerHTML = agevalue;
+			document.getElementById("ok").innerHTML = jsok;
+			
+		}
+		
+		</script>
+	</head>
+	<body>
+		<h1>Oppgave 7.</h1>           <a href="index.html">Home</a>
+			<h3>Lag et skjema for å opprette en bruker på en nettside som inneholder materiale som kun er egnet for
+					et vosent publikum. Skjemaet skal bestå av felter for ønsket brukernavn, passord,
+					passordbekreftelse, alderskontroll og en registrer knapp. Når man trykker knappen skal programmet
+					sjekke om man har fylt ut feltene, at passordet i passordfeltene er like og at brukeren er minst 18 år
+					gammel.
+					<br />
+					<br />
+					- Om ett eller begge feltene ikke inneholder noe skal du gi brukeren beskjed om hvilke felter
+					som ikke er fylt ut.<br />
+					- Om brukeren ikke har skrevet inn passordet likt i feltene skal du gi en beskjed om dette<br />
+					- Om brukeren er under 18 år skal du gi en passende tilbakemelding ang dette.<br />
+					- Om feltene er korrekt fylt ut skal du takke brukeren for registreringen.<br />
+			</h3>
+		<p>
+		Username:<input id="txtuser7"  type="text" placeholder="Enter username"/>
+		<div id="userprint"></div> <br />
+		Password:<input id="txtpass7"  type="text" placeholder="Enter Password"/>
+		<div id="passprint"></div> <br />
+		Confirm Password:<input id="txtpasscheck7"  type="text" placeholder="Confirm password"/>
+		<div id="passcheckprint"></div> <br />
+		Age:<input id="txtalder7" type="number" style="date"/> 
+		<div id="ageprint"><br /><br /></div>
+		
+		
+		<button id="btn7" type="submit">Registrer!</button>
+		<div id="ok">Here!</div>
+		</p>
+	</body>
+</html>
+

@@ -1,0 +1,7 @@
+function meh ()
+{
+	ls -la | grep $1
+}
+
+read eh
+meh $eh

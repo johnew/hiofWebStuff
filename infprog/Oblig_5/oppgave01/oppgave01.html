@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>oppgave 1</title>
+	<meta charset="UTF-8">
+	<script>
+	window.onload = oppstart;
+	
+	function oppstart() {
+		document.getElementById("btn").onclick = stuff;
+	}
+	function stuff() {
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = stuff02;
+		xmlhttp.open("GET", "presentasjoner01.dat", true);
+		xmlhttp.send();
+	}
+	function stuff02() {
+		if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+			var print = document.getElementById("print");
+			var innhold = xmlhttp.responseText;
+			var deltInnhold = innhold.split("\n"); // \n betyr linje skift.
+			var date = [];
+			var utskriftArr = [];
+			
+			 // ---- Deler innholdet opp i en array -----
+			for(var i = 0; i < deltInnhold.length; i++) {
+				deltInnhold[i] = deltInnhold[i].split("¤"); // deler opp dataen enda mer.
+				date[i] = new Date(deltInnhold[i][2]); // nå blir date[0] datoen og date[1] tiden.
+				if(date[i] < new Date()) { // hvis datoen er tidligere enn nå så fjern som har med den pres å gjøre.
+					date.splice(i, 1);
+					deltInnhold.splice(i, 1);
+				} else {
+					date[i][1] = i; // får den nye dato arrayen til å huske den orginal indexen.
+				}
+				
+			}
+			
+			date.sort(function(a, b) {return a-b}); // sorterer datoene
+			
+			for(var i = 0; i < deltInnhold.length; i++) { // setter index tallene i sortert rekkefølge
+				utskriftArr[i] = date[i][1];		
+			}
+			
+			// --------Utskrift her----------- \\
+			print.innerHTML = ""; // fjerner alt.
+			for(var i = 0; i < deltInnhold.length; i++) { // skriver. // arraten vil nå skrive ut basert på hvor det ble plassert i utskriftArr.
+				print.innerHTML += "<h3>" + deltInnhold[utskriftArr[i]][0] + " " + deltInnhold[utskriftArr[i]][1] + ", </h3><p>"
+					+ deltInnhold[utskriftArr[i]][2] + "<br />" + "Antall plasser: " + deltInnhold[utskriftArr[i]][3] + "</p>";
+			}
+			// ------------Done-------------\\
+			
+		} // alt ska vær inni if testen!
+	}
+	
+	</script>
+</head>
+<body>
+	<p><a href="main.html">home</a> Brukte ikke php her</p>
+	<button id="btn">Hent presentasjoner</button>
+	<p id="print">
+	</p>
+</body>
+</html>

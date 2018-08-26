@@ -1,0 +1,41 @@
+trap "echo stahp" 2
+### ---  lukker vist noen variabler blir sent inn.
+if [ $2 ] 
+	then exit
+fi
+
+### --- leser in url
+echo "skriv inn url:";
+read url;
+
+### --- tester etter variasjonene av http of url.
+if echo $url | egrep -qv '^https?://'
+	then echo "incorrect url";
+elif echo $url | egrep -qvi '\.jpe?g$'
+	then echo "no image in link. error 1337." $url;
+else echo all is well; 
+fi
+
+while [ true ]
+do
+	echo loop start
+		
+		### --- henter bilde
+		wget $url -O bilde.jpg
+		echo wget done
+
+		### --------------------- Lager html.		
+		echo "" > spion.html
+		echo '<!DOCTYPE html/><html><body><h1>BILDE!</h1><image src="' >> spion.html
+		echo 'bilde.jpg' >> spion.html
+		echo '" width="720" height="480" /><h2><h2>URL:<a href="' >> spion.html
+		echo $url >> spion.html
+		echo '" > bilde link</a><<h2>dato: ' >> spion.html
+		date '+%c'	>> spion.html
+		echo '</h2></body></html>' >> spion.html
+			
+	echo loop end
+	sleep 60
+done 
+
+## trap - 2 løkke stopper ikke uansett.

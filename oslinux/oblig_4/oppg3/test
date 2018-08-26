@@ -1,0 +1,4 @@
+echo enter file path:
+read path
+
+ls -la $path | egrep now.jpg | cut -d ' ' -f5

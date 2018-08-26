@@ -1,0 +1,74 @@
+#!/bin/bash
+
+ask () {
+        if [ $1 = $ans ]
+        then echo $2;
+        fi
+}
+
+ask_end () {
+	if [ $1 = $ans ]
+	then echo $2
+	exit 99
+	fi
+}
+help () {
+	if [ 'help' = $ans ] 
+	then echo $1
+	fi
+}
+
+echo "Hello!, this is game, how are you?";
+
+read ans;
+
+
+ask_end "test" "testytest"; 
+
+ask_end "ekko" "this is the end";
+
+ask "start" "in front of you is a small goblin, 
+	     you are currently holding a dagger 
+	     what will you do?"
+
+help "test:ekko:start";
+
+read ans;
+
+ask_end "attack" "the goblin takes 5 points of damage 
+	leaving it at 15 hp left, goblin counter attacks 
+	and hits you for 99999hp leaving you DEAD."
+
+ask "kill goblin" "you walk up to the goblin and stab
+	it in the throat blood spurts all over the 
+	place while the goblin falls slowly silent."
+
+help "attack:kill goblin";
+
+echo "with goblin taken care of you slowly walk 
+	further into the cave, suddenly before you a 
+	snake appears what will you do?" ;
+
+read ans;
+
+ask_end "kill snake" "after trying to kill the snake and failing
+	horribly the snake bites you which hurts so much you give
+	up and go home. THE END";
+
+ask "walk around snake" "success! wait what?";
+
+help "kill snake:walk around snake";
+
+echo "with the snake now also taken care of you
+	discovered the end of the cave what treasures
+	shall you find there?"
+read ans;
+
+ask "search" "you found nothing";
+
+ask_end "cry" "you cried for an hour. +1 depression. 
+	depression too high you ended commiting suicide. 
+	DEAD"
+
+help "search:cry"
+

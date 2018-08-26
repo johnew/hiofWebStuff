@@ -1,0 +1,228 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+header{
+	
+}
+body{
+    background: url(images/bg01.jpg) center fixed;
+}
+nav, header, footer, aside, section{
+	display: block;
+}
+.top{                                   
+	background-color: #000;
+	z-index: -2;
+}
+.toptext{                         /* texten i toppen*/
+	margin-left: 110px;
+	color: #1643b9;
+	font-size: 70px;
+	z-index: -1;
+	
+}
+#fill{
+	position: fixed;
+	z-index: 1000;
+	color: #1643b9;
+	margin-top: -30px;
+	margin-left: 20px;
+}
+.meny{                         /* denne er linka til dette <ul id="meny"> */
+	background-color: #000000;
+	width: 100px;
+	height: 100%;
+	padding-bottom: 5px;
+	padding-top: 78px;
+	position: fixed;
+	margin-top: -80px;
+}
+nav ul li{
+	display: block;
+	list-style-type: none;
+	padding: 10px 50px;
+	margin-bottom: 2px;
+	/*vertical-align: bottom;*/
+	height: 26%;
+	margin-right: 0px;
+	/*margin-top: 5px;*/
+	clear: both;
+}
+nav ul li a{
+	/*margin-top: 5px;*/
+	position: fixed;
+}
+nav ul li ul{
+	display: none;
+	height: 150px;
+	width : 620px;
+	position: fixed;
+}
+nav ul li ul li{                         /* drop meny boksene */
+	display: inline-block;
+	margin-left: 5px;
+	padding: 69px 150px;
+}
+nav ul li:visited{                    /* farge som kommer nå du klikker */
+	background-color: #770000;
+}
+nav ul li:hover ul {                    /* dette er meny boksen som dukker opp når musen er på hoved nav */
+	display: block;
+	background-color: #111;
+	margin-left: 50px;
+	margin-top: -10px;
+	height: 187px;
+	position: fixed;
+}
+nav ul li:hover{
+	background-color: #111;
+	z-index: -20;
+}
+nav ul li ul li:hover{                   /* main nav hover farge */
+	background-color: #333;
+	margin-left: 10px;
+}
+.home{
+	margin-left: -30px;
+}
+#homemeny {
+	margin-left: 70px;
+}
+#hiof{
+	margin-left: -30px;
+}
+#hiofmeny{
+	margin-left: 70px;
+}
+#oppgaver{
+	margin-left: -30px;
+}
+#oppgavermeny{
+	margin-left: 70px;
+	width: 500px;
+}
+
+#box5{
+	width: 70%;
+	margin: 0px;
+	margin-left: 105px;
+	margin-top: 5px;
+	background-color: green;
+}
+#box4{
+	width: 70%;
+	height: 50px;
+	margin: 0px;
+	margin-left: 105px;
+	margin-top: 5px;
+	background-color: orange;
+} 
+#box3{
+	width: 70%;
+	margin: 0px;
+	height: 50px;
+	margin-left: 105px;
+	margin-top: 5px;
+	background-color: yellow;
+}
+#box2{
+	margin-left: 105px;
+	margin-top: 5px;
+}
+#box1{
+	margin-top: 5px;
+	margin-left: 105px;
+	width: 70%;
+	background-color: aqua;
+}
+#box5-refusing-to-become-a-whale{
+	padding-top: 40px;
+	padding-bottom: 5px;
+}
+#tetris{
+	margin-top: 5px;
+	margin-left: 105px;
+	background-color: orange;
+	width: 70%;
+}
+#tetris1{
+	
+}
+#calendar{
+	width: 200px; 
+	height: 150px;
+	margin-top: -50px;
+	margin-left: -100px;
+}
+#wiki{
+	width: 170px;
+	height: 170px;
+	margin-top: -55px;
+	margin-left: -90px;
+}
+#oppgaver-icon{
+    width: 270px;
+	height: 150px;
+	margin-top: -60px;
+	margin-left: -40px;
+}
+#linkfix{
+	position: fixed;
+}
+section{
+	margin-top: -170px;
+	float: right;
+	width: 22%;
+	color: yellow;
+	background-color: black;
+}
+#theend{
+	width: auto;
+	margin-left: -500px; 
+}
+footer{
+	width: 88%;
+	background-color: black;
+	margin-left: 1px;
+	color: #1643b9;
+	padding: 5px;
+	padding-left: 150px;
+}
+/* videre så har vi stil sett for oppgave siden*/
+
+#top-right{
+	float: right;
+	margin-top: -60px;
+	margin-right: 150px;
+	color: #1643b9
+}
+#large-box{
+	
+}
+#oppgaver-article{
+	margin-top: 5px;
+	margin-left: 105px;
+	background-color: aqua;
+	
+}#oppg-title{
+	font-size: 35px;
+}
+.margin{
+	margin-top: 20px;
+}
+
+/* bilde fix her fra*/
+
+#img-whale{
+	width: 640px;
+	height: 399px;
+}
+#img-briefcase{
+	width: 50px;
+	height: 50px;
+}
+#hiof-logo{
+	width: 50px; 
+	height: 50px;
+}

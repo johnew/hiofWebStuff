@@ -1,0 +1,22 @@
+29:Jan:Høiberg:Darres gate 22:0175:Oslo:69215348
+62:Mette:Myhrvold:Sandakerveien 10G:0743:Oslo:99106353
+29:Ottar:Fjernvalg:Gata 13:2222:Rena:22232425
+34:Ragna:Rekkverk:Veien 10:3333:Fjordland:12131415
+56:Karsten:Corner:Stien 14:4444:Bergli:15161718
+34:Reidar:Vacuum:Ole Dahls gt 14:1776:Halden:41435332
+39:Rick:Danko:Tinker Street 10:1121:Bearsville:20102010
+34:Levon:Helm:Plochmann Lane:1120:Woodstock:10201020
+20:Richard:Manuel:Wittington Road 40:1323:Kingston:40304030
+19:Garth:Hudson:Ashokan Reservoir:1324:Hurley:50405040
+6:Bjartmar:Gjerde:Festningsbakken 22:1880:Tistedal:11223344
+98:Olga:Svingstang:Brattlia 14:4455:Harpefoss:99887766
+22:Harald:Staff:Valdresgata 30:0234:Oslo:45566778
+32:Robbie:Robertson:Glasco Turnpike 50:1222:Saugerties:30203020
+29:Åse:Nilsen:Valdresgata 30:0234:Oslo:55667788
+19:Cashmere:Cat:252 7th Avenue:1010:New York:55555555
+43:Sylfest:Strutle:Smuget 12:1414:Sykkylven:11223344
+40:Prepple:Houmb:Elgeseter Bru:5550:Trondheim:66666666
+18:Kjartan:Kristiansen:Svartlamoen 14:5550:Trondheim:77777777
+17:Joakim:Nielsen:St Olavs Plass 1:0165:Oslo:21222324
+43:Assar:Rønnlund:Skidåkarvegen 10:9988:Mora:43322110
+33:Hilmar:Myhra:Holmenkollvegen 5:0234:Oslo:99664422

@@ -1,0 +1,22 @@
+myvar=10000000
+
+while [ true ]
+do
+		
+	highvar=$((myvar * 12/10))
+	lowvar=$((myvar * 8/10))
+	
+	echo $myvar
+	echo '20% higher: '$highvar
+	echo '20% lower: '$lowvar
+	
+	
+	if (($myvar < $highvar))
+		then echo hiioiiiiiiiiigher
+	fi	
+
+	((myvar++))
+	
+	sleep 0.1
+
+done

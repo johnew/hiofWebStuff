@@ -1,0 +1,79 @@
+trap 'echo ikke avbrytt' 2
+### ---  lukker vist noen variabler blir sent inn.
+if [ $2 ] 
+	then exit
+fi
+
+### --- leser in url
+echo "skriv inn url:";
+read url;
+
+### --- tester etter variasjonene av http of url.
+if echo $url | egrep -qv '^https?://'
+	then echo "incorrect url";
+	#exit 1
+elif echo $url | egrep -qvi '\.jpe?g$'
+	then echo "no image in link. error 1337." $url
+	#exit 1
+else echo all is well; 
+fi
+
+#if [ -f testv ] 
+#	then testv=0;
+
+bildesize=0;
+bildesizelow=0;
+bildesizehigh=0;
+bildesizeold=0;
+
+while [ true ]
+do
+	echo loop start
+		
+		### --- henter bilde
+		wget $url -O bilde.jpg
+		echo wget done
+
+		### --------------------- Lager html.		
+		echo "" > spion.html
+		echo '<!DOCTYPE html/><html><body><h1>BILDE!</h1><image src="' >> spion.html
+		echo 'bilde.jpg' >> spion.html
+		echo '" width="720" height="480" /><h2><h2>URL:<a href="' >> spion.html
+		echo $url >> spion.html
+		echo '" > bilde link</a><<h2>dato: ' >> spion.html
+		date '+%c'	>> spion.html
+		echo '</h2></body></html>' >> spion.html
+
+
+		### --- oppgave 3
+				
+				
+		bildesize=$(ls -la bilde.jpg | grep bilde.jpg | cut -d ' ' -f5)
+		echo $bildesize
+		
+		if ((bildesizeold == 0))
+			then bildesizeold=$bildesize
+		fi
+		
+		bildesizelow=$((bildesize * 8/10))
+		echo $bildesizelow			
+	
+		bildesizehigh=$((bildesize * 12/10))
+		echo $bildesizehigh	
+		
+		echo $bildesizeold		
+				 
+		if (( $bildesizeold < $bildesizelow || $bildesizeold > $bildesizehigh ))
+			then echo Alaarm!!! 
+			exit 99  
+			break;
+		fi
+			
+			
+	
+		bildesizeold=$bildesize
+		
+	echo loop end
+	sleep 10
+done 
+trap - 2

@@ -1,0 +1,6 @@
+echo "er glenn en pleb?"
+read ans
+if [ $ans = 'yes' ]; then echo 'exactly'
+elif [ $ans = 'no' ]; then $ans = 'yes' | echo "still pleb";
+else echo pleb;
+fi

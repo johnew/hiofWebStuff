@@ -1,0 +1,4 @@
+echo "skriv inn URL:";
+read url;
+echo -e "lastet ned fra $url";
+

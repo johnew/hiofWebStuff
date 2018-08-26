@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Oppgave 10</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script>
+		window.onload = oppstart;
+		function oppstart() {
+			document.getElementById("btn").onclick = create;
+		}
+		var hest = false;
+		function create() {
+			
+		
+			if(hest === false) {
+				var text = document.createElement("p");                              // jeg lager et element
+				text.id = "textp";																// setter id til textp
+				var textnode = document.createTextNode("Hello!");				// lager en textnode med hello inni 
+				text.appendChild(textnode);												// fester text noden til elementet 
+				document.body.appendChild(text);										// fester elementet til body 
+				hest = true;                                                                       // setter hest til true slik at denne if`en ikke kjører på neste trykk
+			}
+			else if(hest === true) {															// hest blir true på andre klikk(hvorfor hest? hvorfor ikke!)
+			
+				var slett = document.getElementById("textp");						// henter bare id en til det ny lagde elementet og setter det som slett
+					 slett.parentNode.removeChild(slett);                           	// fjerner så elementet
+					hest = false;																	// setter hest til false slik at if kjører ved et tredje klikk
+				}
+				
+				 // fortapte forsøk
+				//removeChild(kropp.child); 
+				 // alert("nope");
+				 
+				  // var item = document.getElementById("myLI");
+                  // item.parentNode.removeChild(item);
+			}
+		</script>
+	</head>
+	<body>
+		<nav></nav>
+		<h1>Oppgave 10</h1> <a href="index.html">Home</a>
+		<h3>Lag en knapp som ved klikk viser et tekstfelt om tekstfeltet ikke synes fra før, om tekstfeltet er synlig
+				skal det fjernes. Dere skal ikke manipulere css når dere gjør dette.
+				<a href="http://www.w3schools.com/js/js_htmldom_document.asp">http://www.w3schools.com/js/js_htmldom_document.asp</a> (dokumentasjon)
+		</h3>
+		
+		<div id="textparent">
+			<button id="btn">click this!</button>
+		</div>
+		<section></section>
+		<footer></footer>
+	</body>
+</html>

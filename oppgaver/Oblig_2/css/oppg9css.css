@@ -1,0 +1,14 @@
+#tekst {
+	width: 900px;
+	height: 300px;
+	float: left;
+}
+#intekst {
+	width: 900px;
+	height: 300px;
+	float: left;
+}
+#print {
+	clear: left;
+	margin-top: 10px;
+}

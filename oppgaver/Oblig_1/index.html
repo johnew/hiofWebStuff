@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="UTF-8">
+		<title>John`s oppg</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="myjs1.js"></script>
+		<script src="myjs2.js"></script>
+		<script src="myjs3.js"></script>
+		<script src="myjs4.js"></script>
+	</head>
+    <body>
+		<h1>John eric woodcock, Dataingeniør, 1.året.</h1>
+		<div>
+			<h2>Oppgave 1</h2>
+			<h3>Lag et tomt html-element og skriv javascript-kode som fyller dette elementet med: «Hei jeg heter
+			navnet_ditt og jeg skal bli nerd»</h3>
+			<p id="navn1">...</p> 
+			<script>var navn1 = document.getElementById("navn1").innerHTML = "Hei! Jeg heter john og jeg skal bli nerd";</script>
+		</div>
+		<div>
+			<h2>Oppgave 2</h2>
+			<h3>Lag et html-element som inneholder teksten «Jeg elsker å progge hilsen:». Skriv så javascript-kode
+				som legger til fornavnet ditt etter teksten. </h3>
+			<p id="navn2">Jeg elsker å progge hilsen:</p>
+			<script>var navn2 = document.getElementById("navn2").innerHTML += " John";</script>
+		</div>
+		<div>                             <!-- brukte "myjs1.js" som ligger i head -->
+			<h2>Oppgave 3</h2>        
+			<h3>Lag et skjema hvor man skal kunne skrive inn ett navn og en knapp. Når man trykker på knappen skal
+				man få en «popup» beskjed som sier: «Hei navnet_som_er_skrevet_inn»</h3>
+			<p>Trykk denne -------_/\_--><button onclick="oppg3()">hest</button></p>
+			<p id="hest"></p>
+		</div>
+		<div>                            <!-- scripten til denne ligger i myjs1.js -->
+			<h2>Oppgave 4</h2>
+			<h3>Lag et skjema der du kan skrive inn to tall i to tekstbokser, og så få ut summen(+), differansen(-),
+				produktet(*) og kvotienten(/) når man trykker på en "beregn"-knapp.
+			</h3>
+			<p>Første tall: <input type="text" id="txttall1" /><br />
+			   Andre tall: <input type="text" id="txttall2" /> 
+			<button id="btnoppg4">Regn ut</button><br /></p>
+			<output id="plus" type="text">Summen er : </output><br />
+			<output id="minus">Differansen er : </output><br />
+			<output id="gange">Produktet er : </output><br />
+			<output id="deling">Kvotienten er : </output><br />
+		</div>
+		<div>               	<!-- brukte external js "myjs2.js"-->
+			<h2>Oppgave 5</h2>
+			<h3>Lag et skjema for å opprette en bruker på en nettside bestående av felter for ønsket brukernavn,
+				passord og en registrer knapp. Når man trykker knappen skal programmet sjekke om man har fylt ut
+				feltene.
+				
+			<br />
+			<br />
+				- Om ett eller begge feltene ikke inneholder noe skal du gi brukeren beskjed om dette.<br />
+				- Om feltene er fylt ut skal du takke brukeren for registreringen.
+			</h3>
+			<p>Username:<input type="text" id="brukernavn" value="Enter username"/>
+		    <br />
+			Password:<input type="text" id="passord" value="Enter password"/>
+			<button id="btnoppg5" type="submit">Register</button></p>
+			<p id="test">Here!</p>
+			<br />
+		</div>
+		<div>                        <!-- Oppgave 6 (myjs3.js) -->
+			<h2>Oppgave 6</h2>
+			<h3>Lag et skjema for å opprette en bruker på en nettside bestående av felter for ønsket brukernavn,
+				passord, passordbekreftelse og en registrer knapp. Når man trykker knappen skal programmet sjekke
+				om man har fylt ut feltene og at passordet i passordfeltene er like.<br />
+				<br />
+				- Om ett eller begge feltene ikke inneholder noe skal du gi brukeren beskjed om hvilke felter
+				som ikke er fylt ut. <br />
+				- Om brukeren ikke har skrevet inn passordet likt i feltene skal du gi en beskjed om dette<br />
+				- Om feltene er korrekt fylt ut skal du takke brukeren for registreringen.<br />
+			</h3>
+			<p>Brukernavn <input type="text" id="useroppg6" value="Enter username"/>
+			<br />
+			<br />
+			Password <input type="text" id="passoppg6" value="Enter password"/>
+			<br />
+			Passord confirmation <input type="text" id="passcheck" value="confirm password"/>
+			<button id="btnoppg6" type="submit">Register</button></p>
+			<p id="done">Here!</p>
+			<br />
+		</div>
+		<div>                                                                    <!-- oppgavene ble støre og støre så jeg satt resten av dem på egne sider -->
+			<h2>Oppgave 7</h2>
+			<h3><a href="oppg7.html">Oppgave 7</a></h3>
+			<h2>Oppgave 8</h2>
+			<h3><a href="oppg8.html">Oppgave 8</a></h3>
+			<h2>Oppgave 9</h2>
+			<h3><a href="oppg9.html">Oppgave 9</a></h3>
+			<h2>Oppgave 10</h2>
+			<h3><a href="oppg10.html">Oppgave 10</a></h3>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Oppgave 9</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script>                        
+		window.onload = oppstart;												
+		function oppstart() {
+			document.getElementById("btn").onclick = function1;
+			document.getElementById("form").onfocus = focus;
+			document.getElementById("key").onkeydown = keydown;
+			document.getElementById("tom").onclick = pic;
+			
+		}																								 
+		function function1() {                                                           
+			document.getElementById("text").innerHTML = "stuff";
+		}
+		function focus() {
+			form.style.background = "aqua";
+		}
+		function keydown() {
+			alert("you clicked a key");
+		}
+		
+		/*              ikke relevant lenger
+		function pic() {                 
+			var node = document.createElement("stuff")
+			var thomas = document.createElement("picture");
+			thomas.src="thomas.jpg";
+			node.appendChild(thomas);
+			document.getElementById("here").appendChild(node);
+		} */
+		
+		
+		
+		</script>
+	</head>
+	<body>
+		<h1>Oppgave 9</h1> <a href="index.html">Home</a>
+		<h3>Skriv kode som viser bruken av følgende hendelser/eventer:
+			<a href="http://www.w3schools.com/jsref/dom_obj_event.asp">http://www.w3schools.com/jsref/dom_obj_event.asp </a> (dokumentasjon)
+			- onclick
+			- onfocus
+			- Bruk gjerne flere hendelsestyper om du ønsker.
+		<h3>
+		<div>
+			<button id="btn" onclick="function1">click me!</button>                
+			<p id ="text" >!</p>
+			<input id="form" onfocus="focus" /> <br />
+			<h3>write somthing below :D</h3>
+			<input id="key" /> <br /><br />
+			<button id="tom" onclick="pic">Pointless button</button>
+			<p>Warning pointless</p>
+			<p id="here"></p>
+			<p id=""></p>
+		</div>
+	
+	</body>
+</html>

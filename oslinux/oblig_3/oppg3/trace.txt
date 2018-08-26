@@ -1,0 +1,18 @@
+traceroute to cashmerecat.com (107.180.12.36), 30 hops max, 60 byte packets
+ 1  hstud-vg.hiof.no (158.39.162.1)  0.437 ms  0.395 ms  0.371 ms
+ 2  halden-gw3.uninett.no (128.39.46.129)  0.350 ms  0.278 ms  0.479 ms
+ 3  ifi2-gw.uninett.no (128.39.254.114)  2.376 ms  2.307 ms  2.178 ms
+ 4  stolav-gw2.uninett.no (128.39.254.82)  2.445 ms  2.429 ms  2.417 ms
+ 5  dk-ore.nordu.net (109.105.102.66)  9.951 ms  9.938 ms  9.920 ms
+ 6  dk-uni.nordu.net (109.105.97.133)  10.613 ms  10.476 ms nl-sar.nordu.net (109.105.97.137)  20.597 ms
+ 7  us-man.nordu.net (109.105.97.139)  98.513 ms uk-hex.nordu.net (109.105.97.127)  30.998 ms us-man.nordu.net (109.105.97.139)  98.432 ms
+ 8  us-ash.nordu.net (109.105.97.141)  104.630 ms  104.452 ms us-ash.nordu.net (109.105.97.143)  104.364 ms
+ 9  eqix.dc.godaddy.com (206.126.236.43)  106.003 ms  105.137 ms  105.842 ms
+10  ip-184-168-6-81.ip.secureserver.net (184.168.6.81)  105.753 ms  105.478 ms  106.069 ms
+11  ip-184-168-6-81.ip.secureserver.net (184.168.6.81)  105.245 ms ip-184-168-6-83.ip.secureserver.net (184.168.6.83)  105.278 ms ip-184-168-6-81.ip.secureserver.net (184.168.6.81)  105.192 ms
+12  * * *
+13  * * *
+14  * * *
+15  * * *
+16  * * *
+17  *

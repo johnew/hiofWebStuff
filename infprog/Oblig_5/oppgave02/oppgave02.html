@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>oppgave</title>
+	<script>
+	window.onload = oppstart;
+	var xmlhttp;
+	
+	function oppstart() {
+		document.getElementById("btn").onclick = knapp;
+		
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = read;
+		xmlhttp.open("GET", "presentasjoner01.dat", true);
+		xmlhttp.send();
+	}
+	function read() {
+		if (xmlhttp.readyState === 4 && xmlhttp.status === 200) { // denne koden er tatt fra oppgave 1 siden
+			var print = document.getElementById("print");			// jeg skal hente data helt likt som istad.
+			var innhold = xmlhttp.responseText;
+			var deltInnhold = innhold.split("\n"); // \n betyr linje skift.
+			var date = [];
+			var utskriftArr = [];
+			
+			 // ---- Deler innholdet opp i en array -----
+			for(var i = 0; i < deltInnhold.length; i++) {
+				deltInnhold[i] = deltInnhold[i].split("¤"); // deler opp dataen enda mer.
+				date[i] = new Date(deltInnhold[i][2]); // nå blir date[0] datoen og date[1] tiden.
+				if(date[i] < new Date()) { // hvis datoen er tidligere enn nå så fjern som har med den pres å gjøre.
+					date.splice(i, 1);
+					deltInnhold.splice(i, 1);
+				} else {
+					date[i][1] = i; // får den nye dato arrayen til å huske den orginal indexen.
+				}
+			}
+			date.sort(function(a, b) {return a-b}); // sorter funksjonen.
+			
+			for(var i = 0; i < deltInnhold.length; i++) { // setter index tallene i sortert rekkefølge
+				utskriftArr[i] = date[i][1];		
+			}
+			// --- her kommer ny kode --- \\
+			for(var i = 0; i < utskriftArr.length; i++) {
+				var option = document.createElement("option"); // lager option elementene
+				option.value = deltInnhold[i][1];
+				option.innerHTML = deltInnhold[i][1];			// gir dem value og innerHTML
+				document.getElementById("selBox").appendChild(option); // så fester dem til selectboxen.
+			}
+		}
+	}
+	function knapp() {
+		var forNavn = document.getElementById("fornavn").value; 
+		var	etterNavn = document.getElementById("etternavn").value; 
+		var	epost = document.getElementById("epost").value;
+		var	valgt = document.getElementById("selBox").value;
+			
+		if(forNavn === "" || etterNavn === "" || epost === "") {
+			document.getElementById("print").innerHTML = "du må fylle ut alle feltene!";
+			return;
+		} else {
+			document.getElementById("print").innerHTML = "";
+		}
+	
+		var url = "registrer.php?fornavn=" + forNavn + "&etternavn=" + etterNavn + "&epost=" + epost + "&valgt=" + valgt;
+		var pres = document.getElementById("selBox").value;
+		
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = lagre;
+		xmlhttp.open("GET", url, true);
+		xmlhttp.send();
+	}
+	function lagre() {
+		if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+		alert("skrevet");
+		}
+	}
+	</script>
+</head>
+<body>
+	<p><a href="../oppgave01/main.html">Home</a> <a href="registrer.phps">phps fil</a></p>
+	<h2>Registrering</h2>
+	<select id="selBox">
+	</select>
+	<p>fornavn: <input id="fornavn"></input>etternavn: <input id="etternavn"></input></p>
+	<p>Epost: <input id="epost"></input></p>
+	<br />
+	<button id="btn">Registrer</button>
+	<p id="print"></p>
+</body>
+</html>

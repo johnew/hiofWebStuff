@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>oppgave 4</title>
+	<script>
+	window.onload = oppstart;
+	
+	function oppstart() {
+		document.getElementById("krisBtn").onclick = hentVærKris;
+		document.getElementById("berBtn").onclick = hentVærBer;
+		document.getElementById("stavBtn").onclick = hentVærStav;
+	}
+	function hentVærKris() {hentVær(document.getElementById("krisBtn").value)};
+	function hentVærBer() {hentVær(document.getElementById("berBtn").value)};
+	function hentVærStav() {hentVær(document.getElementById("stavBtn").value)};
+	function hentVær(plass) {
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = statusforandring;
+		xmlhttp.open("GET", "php04.php?plass=" + plass, true);
+		xmlhttp.send();
+	}
+	function statusforandring() {
+		if (xmlhttp.readyState === 4 && xmlhttp.status === 200 ) {
+		var innhold = xmlhttp.responseXML;
+		console.log(innhold);
+		var text = innhold.getElementsByTagName("weatherdata")[0].getElementsByTagName("forecast")[0].getElementsByTagName("text")[0].getElementsByTagName("location")[0].getElementsByTagName("time")[0].getElementsByTagName("body")[0].childNodes[0].nodeValue;
+		
+		document.getElementById("print").innerHTML = text;
+	}
+}
+	</script>
+</head>
+<body>
+	<h2>Oppgave 4 </h2>
+	<p><a href="../oppgave01/main.html">Home</a> <a href="php04.phps"> phps Fil</a></p>
+	<p>
+		<button id="krisBtn" value="kristiansand">Kristiansand</button>
+		<button id="berBtn" value="bergen">Bergen</button>
+		<button id="stavBtn" value="stavanger">Stavanger</button>
+	</p>
+	<p id="print">
+	</p>
+	<p><a text="Værvarsel fra yr.no, levert av NRK og Meteorologisk institutt" href="http://www.yr.no/sted/Norge/Rogaland/Stavanger/Stavanger/">www.yr.no</a></p>
+</body>
+</html>

@@ -1,0 +1,14 @@
+echo "you are standing on a road in the middle of a forest. The path seems to go north and south. What will you do?"
+read ans01
+
+if [ "$ans01" == "go north" ]; then 
+	echo after heading north for a while you come across a snake. The snake then bites you and you die. Game Over.
+else
+	echo after heading south for a while you encounter a small snake..
+	read ans
+	if [ "$ans" == "step on snake" ]; then
+		echo you start stepping on the snake. The snake then bites you. You are now poisoned.
+	else	
+		echo i dont know what you are trying to do but it is probably stupid.
+	fi
+fi

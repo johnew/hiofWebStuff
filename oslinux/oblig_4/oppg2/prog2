@@ -1,0 +1,116 @@
+#!/bin/bash
+trap '' 2
+### ---  lukker vist noen variabler blir sent inn.
+if [ $2 ] 
+	then exit
+fi
+
+### --- leser in url
+echo "skriv inn url:";
+read url;
+
+### --- tester etter variasjonene av http of url.
+if echo $url | egrep -qv '^https?://'
+	then echo "incorrect url"
+	exit 99
+elif echo $url | egrep -qvi '\.jpe?g$'
+	then echo "no image in link. error 1337." $url;
+	exit 99
+else echo all is well; 
+fi
+
+while [ true ]
+do
+	echo loop start
+				
+
+		### --- "flytter" de eldre bildene.
+		for(( i=10; i >= 1; i--))
+		do
+			meh=$((i+1))
+			meh2=$((i+2))
+			if [ -f "bilde$i.jpg" ]
+				then mv bilde${i}.jpg bilde${meh}.jpg
+				echo fant bilde$i
+			else echo "fant ikke bilde$i"
+			fi
+			
+			if [ -f "spion_$i.html" ] 
+				then sed 's/bilde'"${meh}"'.jpg/bilde'"${meh2}"'.jpg/' spion_${i}.html > spion_${meh}.html
+				### mv spion_${i}.html spion_${meh}.html
+
+			else echo "404 fant ikke spion_${i}.html"
+			fi
+		
+		done
+		
+
+		### ---  orginal spion blir backup.
+		if [ -f spion.html ]
+			then sed 's/BILDE!/gammelt bilde/' spion.html > spion_test.html
+			sed 's/bilde1.jpg/bilde2.jpg/' spion_test.html > spion_1.html   
+		 	cat spion_1.html
+			###mv spion.html spion_2.html
+		fi
+		
+		### --- 
+		if [ -f spion_10.html ] 
+			then rm spion_10.html
+		fi
+		
+		### --- sletter bilde 11
+		if [ -f "bilde11.jpg" ] 
+			then rm bilde11.jpg
+			echo bilde11 removed
+		fi
+
+		### --- henter bilde
+		wget $url -O bilde1.jpg
+		echo wget done
+		
+		
+		
+###		for((i = 0; i < 10; i++))
+###		do	
+###			arr[$((i+1))]=arr[${i}]			
+###		done
+###		arr[0]=$(date '+%c')
+		
+				
+
+		### --------------------- Lager html.		
+		echo "" > spion.html
+		echo '<!DOCTYPE html/><html><body><h1>BILDE!</h1><image src="' >> spion.html
+		echo 'bilde1.jpg' >> spion.html
+		echo '" width="720" height="480" /><h2>URL:<a href="' >> spion.html
+		echo $url >> spion.html
+		echo '" > bilde link</a><h2>dato: ' >> spion.html
+		date '+%c'	>> spion.html
+
+
+
+
+
+
+		
+###		### -------------------- nettsider for dei andre bildene.
+###		for(( i=1; i <= 9; i++))
+###		do
+###			echo "" > spion_$i.html
+###			echo '<!DOCTYPE html/><html><body><h1>gammelt BILDE!</h1>' >> spion_$i.html
+###			echo '<image src="' >> spion_${i}.html
+###	RIP		echo "bilde${i}.jpg" >> spion_${i}.html
+###	time		echo '" width="720" height="480" /><h2>dato:' >> spion_${i}.html
+###			echo datoFixDisLater >> spion_${i}.html
+###			echo '<a href="spion.html">første side<a/></h2></body></html>' >> spion_${i}.html
+###		
+###		echo spion_${i}.html created.
+###			echo "<br /> <a href=\"spion_${i}.html\"/>spion${i}</a> " >> spion.html
+###		done
+###		
+###
+###		echo '</h2></body></html>' >> spion.html
+###
+	sleep 60
+done 
+

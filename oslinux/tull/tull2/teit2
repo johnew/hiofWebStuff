@@ -1,0 +1,12 @@
+echo "you are somewhere. There is a fish on the ground and a path to the north, what will you do?";
+read ans;
+if [ "$ans" = 'snake fish' ];
+	 then echo "YOU WIN! tuturu!"
+elif [ "$ans" = 'kill fish' ];
+	 then echo -e "the fish is dead. What have you done!?!..\n.....3 weeks later the guilt of killing the fish drives you to commit suicide."
+elif [ "$ans" = 'help' ];
+	then "no fuck you"
+elif [ "$ans" = 'help pls'];
+	then "no seriously fuck you"
+else echo what?;
+fi

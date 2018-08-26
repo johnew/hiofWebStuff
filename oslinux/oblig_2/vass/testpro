@@ -1,0 +1,2 @@
+read -p "you are standing in a pit full of snakes what will you do?" ans01;
+echo after $ans01+ing for a while the snakes eventually kill you.;
